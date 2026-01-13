@@ -1,0 +1,17 @@
+<nav-header (NavCollapse)="NavCollapse($event)"></nav-header>
+<mat-sidenav-container class="container-body">
+    <mat-sidenav opened mode="side" [style.width]="navCollapsed ?'65px':'250px'">
+        <nav-bar class="nav-bar"></nav-bar>
+    </mat-sidenav>
+    <mat-sidenav-content [style.margin-left]="navCollapsed ?'65px':'250px'">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <nav-bar class="nav-bar" [class.padding-collap]="navCollapsed" [isCollapsed]="navCollapsed"
+    [style.width]="navCollapsed?'64px':'253px'"></nav-bar>
+<div class="container-body" [style.margin-left]="navCollapsed?'64px':'253px'">
+
+        <breadcumb></breadcumb>
+        <router-outlet></router-outlet>
+
+</div> -->

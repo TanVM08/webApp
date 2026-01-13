@@ -1,0 +1,13 @@
+{
+    "login": {
+        "title": "Welcome Back",
+        "username": "Username",
+        "password": "Password",
+        "remember-me": "Remember Me",
+        "login": "Login",
+        "have-no-account": "Don't have an account",
+        "create-one": "Click here to create one",
+        "please-enter": "Please enter",
+        "forgot-password": "forgot password"
+    }
+}

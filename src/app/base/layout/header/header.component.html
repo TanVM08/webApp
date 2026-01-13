@@ -1,0 +1,49 @@
+<div class="header">
+  <div class="header-left">
+    <div class="toggle-nav-bar" (click)="toggleNavCollapse()">
+      <mat-icon>menu</mat-icon>
+      <!-- <span class="icon-sidebar icon-header"></span> -->
+    </div>
+    @if (!isCollapsed) {
+      <div class="logo-header">
+        <a [routerLink]="['/dashboard/']"></a>
+        <img src="../../../../assets/icons/logo_company.png" alt="">
+      </div>
+    } @else {
+      <div class="logo-icon">
+        <a [routerLink]="['/dashboard/']"></a>
+        <img src="../../../../assets/icons/logo_off.png" alt=""/>
+      </div>
+    }
+
+  </div>
+  <div class="header-right">
+    <div class="lang_logo me-3">
+      <img src="../../../../assets/icons/logo_vn.png" alt="">
+    </div>
+    <div class="noti">
+      <mat-icon class="icon-header" matBadge="15">notifications_none</mat-icon>
+    </div>
+    <div [matMenuTriggerFor]="menu" class="user-profile">
+      <div class="info">
+        <span class="title-m-semibold">{{ userName }}</span>
+        <span class="tparagraph-s-regular color-role">Thu ví viên</span>
+      </div>
+      <span class="icon-angle_down icon-header"></span>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="doViewProfile()">
+          <mat-icon class="icon-user"></mat-icon>
+          <span class="title-m-regular">Hồ sơ người dùng</span>
+        </button>
+        <button mat-menu-item (click)="doChangePassword()">
+          <mat-icon class="icon-change_password"></mat-icon>
+          <span class="title-m-regular">Đổi mật khẩu</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon class="icon-logout color-sematic"></mat-icon>
+          <span class="title-m-regular color-sematic">Đăng xuất</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

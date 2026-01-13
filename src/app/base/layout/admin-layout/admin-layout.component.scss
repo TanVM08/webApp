@@ -1,0 +1,8 @@
+.container-body {
+    position: relative;
+    top: 80px;
+    min-height: calc(100vh - 100px);
+    // background: #F9FAFB;
+    border-radius: 8px;
+    transition: all 500ms ease-in-out;
+}

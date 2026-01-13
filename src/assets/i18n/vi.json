@@ -1,0 +1,13 @@
+{
+    "login": {
+        "title": "Hệ thống thu phí bãi đỗ",
+        "username": "Tên đăng nhập",
+        "password": "Mật khẩu",
+        "remember-me": "Ghi nhớ",
+        "login": "Đăng nhập",
+        "have-no-account": "Bạn chưa có tài khoản",
+        "create-one": "Tạo tài khoản",
+        "please-enter": "Vui lòng nhập thông tin",
+        "forgot-password": "Quên mật khẩu"
+    }
+}

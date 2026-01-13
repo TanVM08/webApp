@@ -1,0 +1,19 @@
+.content {
+        padding: 32px;
+      }
+
+      .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      mat-card {
+        width: 400px;
+      }
+
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }

@@ -1,0 +1,37 @@
+@if(item().subItems){
+<a mat-list-item (click)="toggleNested(item())" class="menu-item mb-3">
+    <mat-icon class="icon-header" matBadge="15">notifications_none</mat-icon>
+    <span routerLinkActive="select-menu-item" >{{item().label}}</span>
+    <span matListItemMeta>
+        <mat-icon routerLinkActive="select-menu-item">{{menuOpen()?'keyboard_arrow_up':'keyboard_arrow_down'}}
+        </mat-icon>
+    </span>
+</a>
+} @else {
+<a mat-list-item [routerLink]="item().route" routerLinkActive="select-menu-item" #rla="routerLinkActive"
+    [activated]="rla.isActive" (click)="toggleNested(item())" class="menu-item mb-3">
+    <mat-icon class="icon-header" matBadge="15">notifications_none</mat-icon>
+    <span routerLinkActive="select-menu-item" >{{item().label}}</span>
+</a>
+}
+
+
+@if(item().subItems && menuOpen()){
+<div class="ms-3" @expandSubMenu>
+    @for (subItem of item().subItems; track $index) {
+    <a mat-list-item [routerLink]="item().route +'/'+subItem.route" routerLinkActive="select-menu-item"
+        #rla="routerLinkActive" [activated]="rla.isActive" class="menu-item">
+        <mat-icon class="icon-header" matBadge="15">notifications_none</mat-icon>
+        <span routerLinkActive="select-menu-item">{{subItem.label}}</span>
+    </a>
+    }
+</div>
+}
+
+<!-- @if(item()){
+<div class="menu-item" [routerLink]="item().menuPathUrl" routerLinkActive="select-menu-item"
+    tooltipPosition="right" tooltipStyleClass="merchant-tooltip">
+    <span class="icon-header" [class]="item().menuIcon"></span>
+    <span class="title-s-semibold" *ngIf="!isCollapsed">{{item().menuName}}</span>
+</div>
+} -->
