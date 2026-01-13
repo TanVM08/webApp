@@ -7,7 +7,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { Router, RouterModule } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { FetchApiService } from '../../../common/service/api/fetch-api.service';
-import { KeycloakAuthService } from '../../../common/service/keycloak/keycloak-auth.service';
 import { ToastService } from '../../../common/service/toast/toast.service';
 
 @Component({
@@ -26,7 +25,6 @@ export class HeaderComponent implements OnInit {
   roleName!: string;
 
   constructor(
-    private keyCloakAuth: KeycloakAuthService,
     private router: Router,
     private api: FetchApiService,
     private toast: ToastService,
@@ -35,7 +33,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userName = this.keyCloakAuth.fullName;
+   
   }
 
   toggleBadgeVisibility() {
@@ -52,7 +50,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    this.keyCloakAuth.logout();
 
   }
 

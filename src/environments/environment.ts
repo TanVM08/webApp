@@ -1,12 +1,6 @@
 export const environment = {
     production: false,
     apiUrl: 'https://openbanking-dev.mbbank.com.vn/ma-service/api/v1/',
-    keycloak: {
-        url: 'http://172.31.2.22:9090',
-        realm: 'cms-parking',
-        clientId: 'angular-client',
-        redirectUri: 'http://localhost:4200/dashboard'
-    },
     accessToken: 'access_token',
     refeshToken: 'refesh_token',
     userInfo: 'userInfo',

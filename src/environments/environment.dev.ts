@@ -1,12 +1,6 @@
 export const environment = {
     production: false,
     apiUrl: 'http://localhost:8081/',
-    keycloak: {
-        url: 'https://keycloak.vdss.com.vn',
-        realm: 'cms-parking',
-        clientId: 'angular-client',
-        redirectUri: 'http://localhost:4200/*'
-    },
     accessToken: 'access_token',
     refeshToken: 'refesh_token',
     userInfo: 'userInfo',

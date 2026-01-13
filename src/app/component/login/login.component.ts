@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MATERIAL_IMPORTS } from '../../base/shared/material.module';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { KeycloakAuthService } from '../../common/service/keycloak/keycloak-auth.service';
-import { FetchApiService } from '../../common/service/api/fetch-api.service';
-import { LOGIN_ENDPOINT } from '../../common/enum/EApiUrl';
 import { Router } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { MATERIAL_IMPORTS } from '../../base/shared/material.module';
+import { FetchApiService } from '../../common/service/api/fetch-api.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +16,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private translate: TranslateService,
-    private keyCloakAuth: KeycloakAuthService,
     private api: FetchApiService,
     private router: Router
   ) {
@@ -42,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   logOut() {
-    this.keyCloakAuth.logout();
+   
   }
 
   login() {

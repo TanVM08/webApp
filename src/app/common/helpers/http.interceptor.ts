@@ -12,7 +12,6 @@ import { catchError, retry } from "rxjs/operators";
 import { Router } from "@angular/router";
 import { v4 as uuidv4 } from 'uuid';
 import { ToastService } from "../service/toast/toast.service";
-import { KeycloakAuthService } from "../service/keycloak/keycloak-auth.service";
 
 
 @Injectable()
@@ -20,7 +19,6 @@ export class AppHttpInterceptor implements HttpInterceptor {
   constructor(
     private router: Router,
     private toast: ToastService,
-    private keyCloakAuth: KeycloakAuthService
   ) {
   }
 
@@ -28,7 +26,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
     httpRequest: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (httpRequest.url.includes("/assets/i18n") || httpRequest.url.includes(`${environment.keycloak.url}/realms/${environment.keycloak.realm}`)) {
+    if (httpRequest.url.includes("/assets/i18n")) {
       return next.handle(httpRequest);
     }
     return next.handle(this.addAuthToken(httpRequest)).pipe(
@@ -54,7 +52,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
   }
 
   addAuthToken(request: HttpRequest<any>) {
-    let token: any = this.keyCloakAuth.token;
+    let token: any = localStorage.getItem(environment.accessToken);
     let reqClone: any;
 
     reqClone = request.clone({
